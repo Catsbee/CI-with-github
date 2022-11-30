@@ -22,7 +22,7 @@ jobs:
         #  DOCKER_USER : ${{secrets.DOCKERUSER}}
         #  DOCKER_PASSWORD : ${{secrets.DOCKERPSWD}}
         run: |
-          docker build . --file Dockerfile --tag my-image-name:$(date +%d)
+          docker build . --file ./Dockerfile --tag my-image-name:$(date +%d)
           docker tag my-image-name:$(date +%d) "${{ secrets.DOCKER_HUB_USERNAME }}/cigithub"
           docker push "${{ secrets.DOCKER_HUB_USERNAME }}/cigithub"
 
