@@ -26,7 +26,7 @@ jobs:
           DOCKER_USR: ${{secrets.DOCKER_HUB_USERNAME}},
           DOCKER_PSW: ${{secrets.DOCKER_PASSWORD}}
         run: |
-          docker login -u $DOCKER_USR --password-stdin $DOCKER_PSW
+          docker login -u charlottemauvezin -p ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           docker build . --file Dokerfile --tag my-image-name:$(date +%d)
           docker tag my-image-name:$(date +%d) "${DOCKER_USR}/cigithub"
           docker push charlottemauvezin/cigithub:tagname
