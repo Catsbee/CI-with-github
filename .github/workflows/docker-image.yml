@@ -22,5 +22,5 @@ jobs:
           docker login -u $DOCKER_USR -p $DOCKER_PSW
           docker build . --file Dokerfile --tag my-image-name:$(date +%d)
           docker tag my-image-name:$(date +%d) "${DOCKER_USR}/cigithub"
-          docker push "${DOCKER_USR}/cigithub"
+          docker push charlottemauvezin/cigithub:tagname
         
