@@ -16,11 +16,11 @@ jobs:
       -
         name: Docker task
         env: 
-          DOCKER_USER: ${{secrets.DOCKER_HUB_USERNAME}},
+          DOCKER_USR: ${{secrets.DOCKER_USER}},
           DOCKER_PSW: ${{secrets.DOCKER_PASSWORD}}
         run: |
-          docker login -u $DOCKER_USER -p $DOCKER_PSW
+          docker login -u $DOCKER_USR -p $DOCKER_PSW
           docker build . --file Dokerfile --tag my-image-name:$(date +%d)
-          docker tag my-image-name:$(date +%d) "${DOCKER_USER}/cigithub"
-          docker push "${DOCKER_USER}/cigithub"
+          docker tag my-image-name:$(date +%d) "${DOCKER_USR}/cigithub"
+          docker push "${DOCKER_USR}/cigithub"
         
