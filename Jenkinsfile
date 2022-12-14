@@ -4,7 +4,8 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello World'
-                python -m pip install --upgrade pip
+                virtualenv venv --distribute
+                . venv/bin/activate 
                 pip install -r requirements.txt
             }
         }
