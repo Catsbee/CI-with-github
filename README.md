@@ -12,3 +12,4 @@ test the app:
 python -m unittest 
 pouet ok let's go
 ok let's go
+pouet
